@@ -18,6 +18,7 @@ namespace Fahrkartenautomat
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             //Fahrkarte Fahrkarte = new Fahrkarte();
+            //Test
         }
     }
 }
