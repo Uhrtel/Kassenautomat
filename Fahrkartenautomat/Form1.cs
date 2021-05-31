@@ -21,15 +21,8 @@ namespace Fahrkartenautomat
         public void AddPrice(double preisstufe)
         {
             buchung = new Buchung();
-            buchung.counter++;
-            listView1.View = View.Details;
-            listView1.GridLines = true;
-            listView1.FullRowSelect = true;
 
-            //Add column header
-            listView1.Columns.Add("Preis", 100);
-            listView1.Columns.Add("Rabatt", 70);
-            //listView1.Columns.Add("Quantit", 70);
+           
 
             buchung.Kosten = preisstufe;
 
@@ -42,40 +35,50 @@ namespace Fahrkartenautomat
                 buchung.rabatt = true;
             }
 
-            if (buchungen.Count <= 4)
+            if (buchungen.Count >= 4)
             {
                 foreach (var item in buchungen)
                 {
-                    if (!buchung.rabatt)
+                    if (buchung.rabatt)
                     {
                         buchung.Kosten = buchung.Kosten * 0.85;
                         buchung.rabatt = true;
-
-                    }
+                        
+                    }                  
                 }
 
             }
 
 
-            //foreach (var item in buchungen)
-            //{
-            //    if (buchungen.Count >= 1)
-            //    {
-            //        gesamtkosten = item.Kosten + gesamtkosten;
-            //        buchungen.Add(buchung);
+            foreach (var item in buchungen)
+            {
+                if (buchungen.Count >= 1)
+                {
+                    gesamtkosten = item.Kosten + gesamtkosten;
 
-            //    }
-            //    else
-            //    {
-            //        buchungen.Add(buchung);
-            //        gesamtkosten = buchung.Kosten;
-            //    }
+                }
+                else
+                {
 
-            //}
-
-            gesamtkosten = buchung.Kosten + gesamtkosten;
+                    buchungen.Add(buchung);
+                }
+               
+            }
+           
             buchungen.Add(buchung);
+            gesamtkosten = buchung.Kosten;
 
+            
+
+            foreach (Buchung buchung in buchungen)
+            {
+
+                ListViewItem lv2 = new ListViewItem(new string[] { buchung.Kosten.ToString(), buchung.vergünstigung.ToString() });
+                listView1.Items.Add(lv2);
+                listView1.View = View.Details;
+            }
+
+            //label1.Text = ();
 
         }
 
@@ -84,6 +87,11 @@ namespace Fahrkartenautomat
         public Form1()
         {
             InitializeComponent();
+            
+            listView1.GridLines = true;
+            listView1.FullRowSelect = true;
+            ListViewItem lv = new ListViewItem(new string[] { "Preis", "Rabatt" });
+            listView1.Items.Add(lv);
         }
 
         private void label1_Click(object sender, EventArgs e)
