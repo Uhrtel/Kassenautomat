@@ -57,11 +57,24 @@ namespace Fahrkartenautomat
 
             foreach (var item in buchungen)
             {
-                gesamtkosten = buchung.Kosten + gesamtkosten;
-                listView1.Items.Add(item.rabatt.ToString());
-                listView1.Items.Add(item.rabatt.ToString());
+                if (buchungen.Count >= 1)
+                {
+                    gesamtkosten = item.Kosten + gesamtkosten;
+                    listView1.Items.Add(item.rabatt.ToString());
+                    listView1.Items.Add(item.rabatt.ToString());
+                }
+                else
+                {
+                    buchungen.Add(buchung);
+                }
+               
             }
 
+            if (buchungen.Count == 0)
+            {
+                buchungen.Add(buchung);
+            }
+            
             buchung.counter++;
             //label1.Text = ();
 
