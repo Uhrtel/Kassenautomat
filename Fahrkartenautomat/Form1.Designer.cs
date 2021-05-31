@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Preis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Rabatt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
@@ -112,14 +114,17 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(212, 70);
+            this.listBox1.Location = new System.Drawing.Point(232, 80);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(307, 180);
+            this.listBox1.Size = new System.Drawing.Size(307, 100);
             this.listBox1.TabIndex = 7;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Preis,
+            this.Rabatt});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(185, 186);
             this.listView1.Name = "listView1";
@@ -160,6 +165,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Preis;
+        private System.Windows.Forms.ColumnHeader Rabatt;
     }
 }
 
