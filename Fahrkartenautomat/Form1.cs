@@ -50,8 +50,10 @@ namespace Fahrkartenautomat
                     {
                         buchung.Kosten = buchung.Kosten * 0.85;
                         buchung.rabatt = true;
+                        
                     }                  
                 }
+
             }
 
 
@@ -60,22 +62,23 @@ namespace Fahrkartenautomat
                 if (buchungen.Count >= 1)
                 {
                     gesamtkosten = item.Kosten + gesamtkosten;
-                    listView1.Items.Add(item.rabatt.ToString());
-                    listView1.Items.Add(item.rabatt.ToString());
+
                 }
                 else
                 {
+
                     buchungen.Add(buchung);
                 }
                
             }
+             if (buchungen.Count == 0)
 
-            if (buchungen.Count == 0)
             {
                 buchungen.Add(buchung);
+                gesamtkosten = buchung.Kosten;
+
             }
             
-            buchung.counter++;
             //label1.Text = ();
 
         }
