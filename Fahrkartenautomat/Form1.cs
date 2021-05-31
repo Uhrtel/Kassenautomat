@@ -21,7 +21,7 @@ namespace Fahrkartenautomat
         public void AddPrice(double preisstufe)
         {
             buchung = new Buchung();
-
+            buchung.counter++;
             listView1.View = View.Details;
             listView1.GridLines = true;
             listView1.FullRowSelect = true;
@@ -42,44 +42,40 @@ namespace Fahrkartenautomat
                 buchung.rabatt = true;
             }
 
-            if (buchungen.Count >= 4)
+            if (buchungen.Count <= 4)
             {
                 foreach (var item in buchungen)
                 {
-                    if (buchung.rabatt)
+                    if (!buchung.rabatt)
                     {
                         buchung.Kosten = buchung.Kosten * 0.85;
                         buchung.rabatt = true;
-                        
-                    }                  
+
+                    }
                 }
 
             }
 
 
-            foreach (var item in buchungen)
-            {
-                if (buchungen.Count >= 1)
-                {
-                    gesamtkosten = item.Kosten + gesamtkosten;
+            //foreach (var item in buchungen)
+            //{
+            //    if (buchungen.Count >= 1)
+            //    {
+            //        gesamtkosten = item.Kosten + gesamtkosten;
+            //        buchungen.Add(buchung);
 
-                }
-                else
-                {
+            //    }
+            //    else
+            //    {
+            //        buchungen.Add(buchung);
+            //        gesamtkosten = buchung.Kosten;
+            //    }
 
-                    buchungen.Add(buchung);
-                }
-               
-            }
-             if (buchungen.Count == 0)
+            //}
 
-            {
-                buchungen.Add(buchung);
-                gesamtkosten = buchung.Kosten;
+            gesamtkosten = buchung.Kosten + gesamtkosten;
+            buchungen.Add(buchung);
 
-            }
-            
-            //label1.Text = ();
 
         }
 
