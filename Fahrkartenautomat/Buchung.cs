@@ -14,5 +14,4 @@ namespace Fahrkartenautomat
         public bool vergünstigung { get; set; }
         
     }
-
 }
