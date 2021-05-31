@@ -18,7 +18,7 @@ namespace Fahrkartenautomat
         double gesamtkosten = 0;
 
 
-        public void AddPrice(Buchung buchung, double preisstufe)
+        public void AddPrice(double preisstufe)
         {
             buchung = new Buchung();
 
@@ -57,7 +57,7 @@ namespace Fahrkartenautomat
 
             foreach (var item in buchungen)
             {
-                
+                gesamtkosten = buchung.Kosten + gesamtkosten;
                 listView1.Items.Add(item.rabatt.ToString());
                 listView1.Items.Add(item.rabatt.ToString());
             }
@@ -81,32 +81,32 @@ namespace Fahrkartenautomat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddPrice(buchung, 100);
+            AddPrice(100);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddPrice(buchung, 200);
+            AddPrice(200);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddPrice(buchung, 300);
+            AddPrice(300);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AddPrice(buchung, 400);
+            AddPrice(400);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddPrice(buchung, 500);
+            AddPrice(500);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AddPrice(buchung, 600);
+            AddPrice(600);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
