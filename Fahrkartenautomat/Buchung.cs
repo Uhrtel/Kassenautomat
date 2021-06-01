@@ -8,10 +8,16 @@ namespace Fahrkartenautomat
 {
     public class Buchung
     {
-        public double Kosten { get; set; }
-        public int counter { get; set; }
-        public bool rabatt { get; set; }
-        public bool vergünstigung { get; set; }
-        
+        public double gesamtKosten { get; set; } = 0.0;
+        public int counter { get; set; } = 0;
+        public double preisstufe { get; set; } = 0.0;
+        public bool vierFahrten { get; set; } = false;
+        public bool tagesTicket { get; set; } = false;
+        public bool ersteKlasse { get; set; } = false;
+        public bool verguenstigung { get; set; } = false;
+        public string verguenstigungText { get; set; } = string.Empty;
+        public string klasseText { get; set; } = string.Empty;
+
+
     }
 }

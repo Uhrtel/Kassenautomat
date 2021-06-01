@@ -28,3 +28,13 @@ C:\Users\s\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkar
 C:\Users\s\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.csproj.CoreCompileInputs.cache
 C:\Users\s\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.exe
 C:\Users\s\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.pdb
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\bin\Debug\Fahrkartenautomat.exe.config
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\bin\Debug\Fahrkartenautomat.exe
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\bin\Debug\Fahrkartenautomat.pdb
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.csprojAssemblyReference.cache
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.Form1.resources
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.Properties.Resources.resources
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.csproj.GenerateResource.cache
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.csproj.CoreCompileInputs.cache
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.exe
+C:\Users\a\Source\Repos\Uhrtel\Kassenautomat\Fahrkartenautomat\obj\Debug\Fahrkartenautomat.pdb

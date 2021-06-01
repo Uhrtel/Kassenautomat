@@ -13,72 +13,79 @@ namespace Fahrkartenautomat
 
     public partial class Form1 : Form
     {
-        Buchung buchung = new Buchung();
-        List<Buchung> buchungen = new List<Buchung>();
-        double gesamtkosten = 0;
+        double zuZahlen = 0;
 
 
         public void AddPrice(double preisstufe)
         {
-            buchung = new Buchung();
+            Buchung buchung = new Buchung();
 
-           
+            buchung.preisstufe = preisstufe;
 
-            buchung.Kosten = preisstufe;
+            buchung.gesamtKosten = preisstufe;
 
-            listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            var result = MessageBox.Show("Gibt es eine Vergünstigung ?", "schließen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = DialogResult.Yes;
+
+
+            result = MessageBox.Show("Vier Fahrten Ticket?", "Vier Fahrten", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                buchung.Kosten = buchung.Kosten * 0.85;
-                buchung.rabatt = true;
+                buchung.gesamtKosten = (buchung.gesamtKosten * 0.75) * 4;
+                buchung.vierFahrten = true;
             }
-
-            if (buchungen.Count >= 4)
+            else
             {
-                foreach (var item in buchungen)
-                {
-                    if (buchung.rabatt)
-                    {
-                        buchung.Kosten = buchung.Kosten * 0.85;
-                        buchung.rabatt = true;
-                        
-                    }                  
-                }
+                result = MessageBox.Show("Nur ein Tagesticket?", "Tagesticket", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    buchung.gesamtKosten = buchung.gesamtKosten * 1.4;
+                    buchung.tagesTicket = true;
+                }
             }
 
+            result = MessageBox.Show("Gibt es eine Vergünstigung? (Kind, Hund, Fahrrad)", "Rabatt", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            foreach (var item in buchungen)
+            if (result == DialogResult.Yes)
             {
-                if (buchungen.Count >= 1)
-                {
-                    gesamtkosten = item.Kosten + gesamtkosten;
-
-                }
-                else
-                {
-
-                    buchungen.Add(buchung);
-                }
-               
+                buchung.gesamtKosten = buchung.gesamtKosten * 0.5;
+                buchung.verguenstigung = true;
             }
-           
-            buchungen.Add(buchung);
-            gesamtkosten = buchung.Kosten;
 
-            
+            result = MessageBox.Show("Möchten Sie in der 1. Klasse fahren?", "1. Klasse", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            foreach (Buchung buchung in buchungen)
+            if (result == DialogResult.Yes)
             {
-
-                ListViewItem lv2 = new ListViewItem(new string[] { buchung.Kosten.ToString(), buchung.vergünstigung.ToString() });
-                listView1.Items.Add(lv2);
-                listView1.View = View.Details;
+                buchung.gesamtKosten = buchung.gesamtKosten * 1.5;
+                buchung.ersteKlasse = true;
             }
 
-            //label1.Text = ();
+            if (buchung.ersteKlasse)
+                buchung.klasseText = "Erste";
+            else
+                buchung.klasseText = "Zweite";
+
+            if (buchung.verguenstigung)
+                buchung.verguenstigungText = "Ja";
+            else
+                buchung.verguenstigungText = "Nein";
+
+            buchung.preisstufe /= 100;
+            buchung.gesamtKosten /= 100;
+
+            ListViewItem lv2 = new ListViewItem(new string[] { buchung.preisstufe.ToString() + "€", buchung.gesamtKosten.ToString() + "€", buchung.klasseText, buchung.verguenstigungText  });
+            listView1.Items.Add(lv2);
+            listView1.View = View.Details;
+
+            zuZahlen = 0.0;
+
+            foreach(ListViewItem row in listView1.Items)
+            {
+                zuZahlen += Double.Parse(row.SubItems[1].Text.Remove(row.SubItems[1].Text.IndexOf('€')));
+            }
+
+            lblGesamtkosten.Text = zuZahlen.ToString() + "€" ;
 
         }
 
@@ -87,61 +94,51 @@ namespace Fahrkartenautomat
         public Form1()
         {
             InitializeComponent();
-            
+
             listView1.GridLines = true;
             listView1.FullRowSelect = true;
-            ListViewItem lv = new ListViewItem(new string[] { "Preis", "Rabatt" });
-            listView1.Items.Add(lv);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            listView1.View = View.Details;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddPrice(100);
+            AddPrice(120);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddPrice(200);
+            AddPrice(210);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddPrice(300);
+            AddPrice(350);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AddPrice(400);
+            AddPrice(480);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddPrice(500);
+            AddPrice(600);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AddPrice(600);
+            AddPrice(740);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Vielen Dank für Ihren Einkauf!", "Abschluss", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listView1.Items.Clear();
         }
     }
 }
