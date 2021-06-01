@@ -13,9 +13,6 @@ namespace Fahrkartenautomat
 
     public partial class Form1 : Form
     {
-        double zuZahlen = 0;
-
-
         public void AddPrice(double preisstufe)
         {
             Buchung buchung = new Buchung();
@@ -24,8 +21,9 @@ namespace Fahrkartenautomat
 
             buchung.gesamtKosten = preisstufe;
 
-            var result = DialogResult.Yes;
+            var result = DialogResult.None;
 
+            double zuZahlen = 0.0;
 
             result = MessageBox.Show("Vier Fahrten Ticket?", "Vier Fahrten", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -43,6 +41,13 @@ namespace Fahrkartenautomat
                     buchung.gesamtKosten = buchung.gesamtKosten * 1.4;
                     buchung.tagesTicket = true;
                 }
+                else
+                {
+                    // Entweder Tagesticket oder Vier Fahrten
+                    AddPrice(preisstufe);
+                    return;
+                }
+
             }
 
             result = MessageBox.Show("Gibt es eine Vergünstigung? (Kind, Hund, Fahrrad)", "Rabatt", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -79,8 +84,6 @@ namespace Fahrkartenautomat
             listView1.Items.Add(lv2);
             listView1.View = View.Details;
 
-            zuZahlen = 0.0;
-
             foreach(ListViewItem row in listView1.Items)
             {
                 zuZahlen += Double.Parse(row.SubItems[1].Text.Remove(row.SubItems[1].Text.IndexOf('€')));
@@ -95,10 +98,6 @@ namespace Fahrkartenautomat
         public Form1()
         {
             InitializeComponent();
-
-            listView1.GridLines = true;
-            listView1.FullRowSelect = true;
-            listView1.View = View.Details;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,12 +132,14 @@ namespace Fahrkartenautomat
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            listView1.GridLines = true;
+            listView1.FullRowSelect = true;
+            listView1.View = View.Details;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vielen Dank für Ihren Einkauf!", "Abschluss", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Vielen Dank für Ihren Einkauf!", "Abschluss", MessageBoxButtons.OK, MessageBoxIcon.None);
             listView1.Items.Clear();
         }
     }

@@ -38,6 +38,7 @@
             this.Preisstufe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Kaufpreis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Klasse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Vergünstigung = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.lblGesamtkosten = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.Vergünstigung = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -145,6 +145,11 @@
             // 
             this.Klasse.Text = "Klasse";
             // 
+            // Vergünstigung
+            // 
+            this.Vergünstigung.Text = "Vergünstigung";
+            this.Vergünstigung.Width = 80;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -237,10 +242,6 @@
             this.label9.Size = new System.Drawing.Size(185, 37);
             this.label9.TabIndex = 18;
             this.label9.Text = "Preisstufen:";
-            // 
-            // Vergünstigung
-            // 
-            this.Vergünstigung.Text = "Vergünstigung";
             // 
             // button7
             // 
