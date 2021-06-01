@@ -71,6 +71,7 @@ namespace Fahrkartenautomat
             else
                 buchung.verguenstigungText = "Nein";
 
+            // Umrechnung in €
             buchung.preisstufe /= 100;
             buchung.gesamtKosten /= 100;
 
