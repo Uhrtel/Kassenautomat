@@ -9,7 +9,6 @@ namespace Fahrkartenautomat
     public class Buchung
     {
         public double gesamtKosten { get; set; } = 0.0;
-        public int counter { get; set; } = 0;
         public double preisstufe { get; set; } = 0.0;
         public bool vierFahrten { get; set; } = false;
         public bool tagesTicket { get; set; } = false;
